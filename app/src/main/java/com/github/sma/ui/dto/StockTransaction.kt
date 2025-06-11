@@ -3,10 +3,9 @@ package com.github.sma.ui.dto
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
-import java.util.UUID
 
 data class StockTransaction(
-    val id: String = UUID.randomUUID().toString(),
+    val id: String,
     val itemId: String,
     val itemName: String,
     val type: TransactionType,

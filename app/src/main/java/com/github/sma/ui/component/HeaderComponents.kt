@@ -28,7 +28,7 @@ import com.github.sma.ui.theme.StockmanagerappTheme
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun SectionNavBar(modifier: Modifier = Modifier, title: String? = null) {
+fun SectionNavBar(modifier: Modifier = Modifier, title: String? = null, onBackClicked: () -> Unit) {
     TopAppBar(
 
 
@@ -37,7 +37,7 @@ fun SectionNavBar(modifier: Modifier = Modifier, title: String? = null) {
             Row(verticalAlignment = Alignment.CenterVertically) {
                 IconButton(
                     onClick = {
-                        Log.d("SectionNavBar", "Back button clicked")
+                        onBackClicked()
                     },
                     modifier = Modifier
                         .padding(start = 8.dp, end = 18.dp)
@@ -77,6 +77,6 @@ fun SectionNavBar(modifier: Modifier = Modifier, title: String? = null) {
 @Composable
 private fun ListHeaderPreview() {
     StockmanagerappTheme {
-        SectionNavBar()
+        SectionNavBar(onBackClicked = { Log.d("Preview", "Back button clicked in preview") })
     }
 }

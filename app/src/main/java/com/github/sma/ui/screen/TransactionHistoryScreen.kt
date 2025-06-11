@@ -8,7 +8,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.ArrowBack
+import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -31,10 +31,13 @@ fun TransactionHistoryScreen(
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text("Riwayat Transaksi") },
+                title = { Text(text = "Riwayat Transaksi") },
                 navigationIcon = {
                     IconButton(onClick = onNavigateBack) {
-                        Icon(Icons.Filled.ArrowBack, contentDescription = "Kembali")
+                        Icon(
+                            imageVector = Icons.AutoMirrored.Filled.ArrowBack,
+                            contentDescription = "Kembali"
+                        )
                     }
                 }
             )
@@ -42,16 +45,14 @@ fun TransactionHistoryScreen(
     ) { paddingValues ->
         if (transactions.isEmpty()) {
             Box(
-                modifier = Modifier.Companion
-                    .fillMaxSize()
-                    .padding(paddingValues),
-                contentAlignment = Alignment.Companion.Center
+                modifier = Modifier.fillMaxSize().padding(paddingValues),
+                contentAlignment = Alignment.Center
             ) {
                 Text("Belum ada riwayat transaksi.")
             }
         } else {
             LazyColumn(
-                modifier = Modifier.Companion.padding(paddingValues),
+                modifier = Modifier.padding(paddingValues),
                 contentPadding = PaddingValues(16.dp),
                 verticalArrangement = Arrangement.spacedBy(8.dp)
             ) {

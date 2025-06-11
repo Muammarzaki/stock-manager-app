@@ -11,18 +11,23 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.AddCircle
-import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material.icons.filled.Delete
 import androidx.compose.material.icons.filled.Edit
+import androidx.compose.material.icons.filled.RemoveCircle
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Button
+import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.material3.TopAppBar
@@ -31,8 +36,10 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.input.KeyboardType
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.github.sma.ui.component.DetailRow
 import com.github.sma.ui.dto.DialogType
@@ -41,13 +48,14 @@ import com.github.sma.ui.dto.StockItem
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ItemDetailScreen(
-    item: StockItem,
+    item: StockItem?,
     onEditClick: (StockItem) -> Unit,
     onDeleteClick: (StockItem) -> Unit,
     onNavigateBack: () -> Unit,
     onAddStock: (StockItem, Int) -> Unit,
     onReduceStock: (StockItem, Int) -> Unit
 ) {
+    if (item == null) return onNavigateBack()
     var showDialog by remember { mutableStateOf(false) }
     var dialogType by remember { mutableStateOf<DialogType?>(null) }
     var quantityChange by remember { mutableStateOf("") }
@@ -150,7 +158,7 @@ fun ItemDetailScreen(
                 title = { Text(item.name) },
                 navigationIcon = {
                     IconButton(onClick = onNavigateBack) {
-                        Icon(Icons.Filled.ArrowBack, contentDescription = "Kembali")
+                        Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "Kembali")
                     }
                 },
                 actions = {
@@ -163,44 +171,66 @@ fun ItemDetailScreen(
                 }
             )
         }
-    ) { paddingValues ->
-        Column(
-            modifier = Modifier.Companion
+    ) { innerPadding ->
+        Surface(
+            modifier = Modifier
                 .fillMaxSize()
-                .padding(paddingValues)
-                .padding(16.dp),
-            verticalArrangement = Arrangement.spacedBy(8.dp)
+                .padding(innerPadding),
+            color = MaterialTheme.colorScheme.background
         ) {
-            DetailRow(label = "ID Barang", value = item.id)
-            DetailRow(label = "Nama Barang", value = item.name)
-            DetailRow(label = "Jumlah Saat Ini", value = "${item.quantity} ${item.unit}")
-            DetailRow(label = "Harga Beli", value = "Rp ${item.purchasePrice}")
-            DetailRow(label = "Harga Jual", value = "Rp ${item.sellingPrice}")
-            item.supplier?.let { DetailRow(label = "Pemasok", value = it) }
-            DetailRow(label = "Terakhir Diperbarui", value = item.lastUpdated)
-
-            Spacer(modifier = Modifier.Companion.height(16.dp))
-            Text("Manajemen Stok:", style = MaterialTheme.typography.titleMedium)
-            Row(
-                horizontalArrangement = Arrangement.spacedBy(8.dp),
-                modifier = Modifier.Companion.fillMaxWidth()
+            Column(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding(16.dp),
+                verticalArrangement = Arrangement.spacedBy(16.dp)
             ) {
-                Button(
-                    onClick = { dialogType = DialogType.ADD; showDialog = true },
-                    modifier = Modifier.Companion.weight(1f)
+                Card(
+                    modifier = Modifier.fillMaxWidth(),
+                    elevation = CardDefaults.cardElevation(defaultElevation = 4.dp)
                 ) {
-                    Icon(Icons.Filled.AddCircle, contentDescription = "Tambah Stok")
-                    Spacer(Modifier.Companion.width(4.dp))
-                    Text("Tambah Stok")
+                    Column(modifier = Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
+                        Text("Detail Barang", style = MaterialTheme.typography.titleLarge, modifier = Modifier.fillMaxWidth(), textAlign = TextAlign.Center)
+                        Spacer(modifier = Modifier.height(8.dp))
+                        DetailRow(label = "ID Barang", value = item.id)
+                        DetailRow(label = "Nama Barang", value = item.name)
+                        DetailRow(label = "Jumlah Saat Ini", value = "${item.quantity} ${item.unit}")
+                        DetailRow(label = "Harga Beli", value = "Rp ${item.purchasePrice}")
+                        DetailRow(label = "Harga Jual", value = "Rp ${item.sellingPrice}")
+                        item.supplier?.let { DetailRow(label = "Pemasok", value = it) }
+                        DetailRow(label = "Terakhir Diperbarui", value = item.lastUpdated)
+                    }
                 }
-                Button(
-                    onClick = { dialogType = DialogType.REDUCE; showDialog = true },
-                    modifier = Modifier.Companion.weight(1f),
-                    enabled = item.quantity > 0
+
+                Card(
+                    modifier = Modifier.fillMaxWidth(),
+                    elevation = CardDefaults.cardElevation(defaultElevation = 4.dp)
                 ) {
-                    Icon(Icons.Filled.Delete, contentDescription = "Kurangi Stok")
-                    Spacer(Modifier.Companion.width(4.dp))
-                    Text("Kurangi Stok")
+                    Column(modifier = Modifier.padding(16.dp), horizontalAlignment = Alignment.CenterHorizontally) {
+                        Text("Manajemen Stok", style = MaterialTheme.typography.titleLarge, modifier = Modifier.fillMaxWidth(), textAlign = TextAlign.Center)
+                        Spacer(modifier = Modifier.height(16.dp))
+                        Row(
+                            horizontalArrangement = Arrangement.spacedBy(16.dp),
+                            modifier = Modifier.fillMaxWidth(),
+                        ) {
+                            Button(
+                                onClick = { dialogType = DialogType.ADD; showDialog = true },
+                                modifier = Modifier.weight(1f)
+                            ) {
+                                Icon(Icons.Filled.AddCircle, contentDescription = "Tambah Stok")
+                                Spacer(Modifier.width(8.dp))
+                                Text("Tambah")
+                            }
+                            OutlinedButton(
+                                onClick = { dialogType = DialogType.REDUCE; showDialog = true },
+                                modifier = Modifier.weight(1f),
+                                enabled = item.quantity > 0
+                            ) {
+                                Icon(Icons.Filled.RemoveCircle, contentDescription = "Kurangi Stok")
+                                Spacer(Modifier.width(8.dp))
+                                Text("Kurangi")
+                            }
+                        }
+                    }
                 }
             }
         }

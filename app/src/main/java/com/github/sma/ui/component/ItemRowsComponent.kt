@@ -10,7 +10,7 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.automirrored.filled.ArrowForward
-import androidx.compose.material.icons.filled.Home
+import androidx.compose.material.icons.automirrored.filled.KeyboardArrowRight
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Icon
@@ -83,7 +83,7 @@ fun StockItemRow(item: StockItem, onClick: () -> Unit) {
                     )
                 }
             }
-            Icon(Icons.Filled.Home, contentDescription = "Lihat Detail")
+            Icon(Icons.AutoMirrored.Filled.KeyboardArrowRight, contentDescription = "Lihat Detail")
         }
     }
 }

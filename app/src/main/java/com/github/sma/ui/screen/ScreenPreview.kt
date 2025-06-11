@@ -22,7 +22,9 @@ fun DashboardScreenPreview() {
                 unit = "pcs",
                 purchasePrice = 3000.0,
                 sellingPrice = 5000.0,
-                supplier = "PT Sinar Dunia"
+                supplier = "PT Sinar Dunia",
+                lastUpdated = "10-10-2023 10:00",
+                id = "1"
             ),
             StockItem(
                 name = "Pensil 2B",
@@ -30,14 +32,18 @@ fun DashboardScreenPreview() {
                 unit = "pcs",
                 purchasePrice = 1000.0,
                 sellingPrice = 2000.0,
-                supplier = "Faber-Castell"
+                supplier = "Faber-Castell",
+                lastUpdated = "10-10-2023 10:00",
+                id = "2"
             ),
             StockItem(
                 name = "Penghapus",
                 quantity = 150,
                 unit = "pcs",
                 purchasePrice = 500.0,
-                sellingPrice = 1000.0
+                sellingPrice = 1000.0,
+                lastUpdated = "10-10-2023 10:00",
+                id = "3"
             ),
             StockItem(
                 name = "Kopi Sachet",
@@ -45,14 +51,18 @@ fun DashboardScreenPreview() {
                 unit = "box",
                 purchasePrice = 20000.0,
                 sellingPrice = 25000.0,
-                supplier = "PT Kapal Api"
+                supplier = "PT Kapal Api",
+                lastUpdated = "10-10-2023 10:00",
+                id = "4"
             ),
             StockItem(
                 name = "Teh Celup",
                 quantity = 30,
                 unit = "box",
                 purchasePrice = 15000.0,
-                sellingPrice = 18000.0
+                sellingPrice = 18000.0,
+                lastUpdated = "10-10-2023 10:00",
+                id = "5"
             )
         )
     }
@@ -77,7 +87,9 @@ fun StockListScreenPreview() {
                 unit = "pcs",
                 purchasePrice = 3000.0,
                 sellingPrice = 5000.0,
-                supplier = "PT Sinar Dunia"
+                supplier = "PT Sinar Dunia",
+                lastUpdated = "10-10-2023 10:00",
+                id = "1"
             ),
             StockItem(
                 name = "Pensil 2B",
@@ -85,14 +97,18 @@ fun StockListScreenPreview() {
                 unit = "pcs",
                 purchasePrice = 1000.0,
                 sellingPrice = 2000.0,
-                supplier = "Faber-Castell"
+                supplier = "Faber-Castell",
+                lastUpdated = "10-10-2023 10:00",
+                id = "2"
             ),
             StockItem(
                 name = "Penghapus",
                 quantity = 150,
                 unit = "pcs",
                 purchasePrice = 500.0,
-                sellingPrice = 1000.0
+                sellingPrice = 1000.0,
+                lastUpdated = "10-10-2023 10:00",
+                id = "3"
             ),
             StockItem(
                 name = "Kopi Sachet",
@@ -100,14 +116,18 @@ fun StockListScreenPreview() {
                 unit = "box",
                 purchasePrice = 20000.0,
                 sellingPrice = 25000.0,
-                supplier = "PT Kapal Api"
+                supplier = "PT Kapal Api",
+                lastUpdated = "10-10-2023 10:00",
+                id = "4"
             ),
             StockItem(
                 name = "Teh Celup",
                 quantity = 30,
                 unit = "box",
                 purchasePrice = 15000.0,
-                sellingPrice = 18000.0
+                sellingPrice = 18000.0,
+                lastUpdated = "10-10-2023 10:00",
+                id = "5"
             )
         )
     }
@@ -135,7 +155,9 @@ fun EditItemScreenPreview() {
                 unit = "pcs",
                 purchasePrice = 3000.0,
                 sellingPrice = 5000.0,
-                supplier = "PT Sinar Dunia"
+                supplier = "PT Sinar Dunia",
+                lastUpdated = "10-10-2023 10:00",
+                id = "1"
             ),
             StockItem(
                 name = "Pensil 2B",
@@ -143,14 +165,18 @@ fun EditItemScreenPreview() {
                 unit = "pcs",
                 purchasePrice = 1000.0,
                 sellingPrice = 2000.0,
-                supplier = "Faber-Castell"
+                supplier = "Faber-Castell",
+                lastUpdated = "10-10-2023 10:00",
+                id = "2"
             ),
             StockItem(
                 name = "Penghapus",
                 quantity = 150,
                 unit = "pcs",
                 purchasePrice = 500.0,
-                sellingPrice = 1000.0
+                sellingPrice = 1000.0,
+                lastUpdated = "10-10-2023 10:00",
+                id = "3"
             ),
             StockItem(
                 name = "Kopi Sachet",
@@ -158,14 +184,18 @@ fun EditItemScreenPreview() {
                 unit = "box",
                 purchasePrice = 20000.0,
                 sellingPrice = 25000.0,
-                supplier = "PT Kapal Api"
+                supplier = "PT Kapal Api",
+                lastUpdated = "10-10-2023 10:00",
+                id = "4"
             ),
             StockItem(
                 name = "Teh Celup",
                 quantity = 30,
                 unit = "box",
                 purchasePrice = 15000.0,
-                sellingPrice = 18000.0
+                sellingPrice = 18000.0,
+                lastUpdated = "10-10-2023 10:00",
+                id = "5"
             )
         )
     }
@@ -188,7 +218,9 @@ fun ItemDetailScreenPreview() {
                 unit = "pcs",
                 purchasePrice = 3000.0,
                 sellingPrice = 5000.0,
-                supplier = "PT Sinar Dunia"
+                supplier = "PT Sinar Dunia",
+                lastUpdated = "10-10-2023 10:00",
+                id = "1"
             ),
             StockItem(
                 name = "Pensil 2B",
@@ -196,14 +228,18 @@ fun ItemDetailScreenPreview() {
                 unit = "pcs",
                 purchasePrice = 1000.0,
                 sellingPrice = 2000.0,
-                supplier = "Faber-Castell"
+                supplier = "Faber-Castell",
+                lastUpdated = "10-10-2023 10:00",
+                id = "2"
             ),
             StockItem(
                 name = "Penghapus",
                 quantity = 150,
                 unit = "pcs",
                 purchasePrice = 500.0,
-                sellingPrice = 1000.0
+                sellingPrice = 1000.0,
+                lastUpdated = "10-10-2023 10:00",
+                id = "3"
             ),
             StockItem(
                 name = "Kopi Sachet",
@@ -211,18 +247,21 @@ fun ItemDetailScreenPreview() {
                 unit = "box",
                 purchasePrice = 20000.0,
                 sellingPrice = 25000.0,
-                supplier = "PT Kapal Api"
+                supplier = "PT Kapal Api",
+                lastUpdated = "10-10-2023 10:00",
+                id = "4"
             ),
             StockItem(
                 name = "Teh Celup",
                 quantity = 30,
                 unit = "box",
                 purchasePrice = 15000.0,
-                sellingPrice = 18000.0
+                sellingPrice = 18000.0,
+                lastUpdated = "10-10-2023 10:00",
+                id = "5"
             )
         )
     }
-
     MaterialTheme {
         ItemDetailScreen(
             item = dummyStockItems.first(),
@@ -244,19 +283,25 @@ fun TransactionHistoryScreenPreview() {
                 itemId = "1",
                 itemName = "Buku Tulis",
                 type = TransactionType.IN,
-                quantityChanged = 50
+                quantityChanged = 50,
+                transactionDate = "10-10-2023 10:00",
+                id = "1"
             ),
             StockTransaction(
                 itemId = "2",
                 itemName = "Pensil 2B",
                 type = TransactionType.OUT,
-                quantityChanged = 20
+                quantityChanged = 20,
+                transactionDate = "10-10-2023 10:00",
+                id = "2"
             ),
             StockTransaction(
                 itemId = "1",
                 itemName = "Buku Tulis",
                 type = TransactionType.OUT,
-                quantityChanged = 10
+                quantityChanged = 10,
+                transactionDate = "10-10-2023 10:00",
+                id = "3"
             )
         )
     }
@@ -276,5 +321,3 @@ fun SettingsScreenPreview() {
     }
 }
 
-// Anda perlu menambahkan ini ke file tema Anda atau pastikan MaterialTheme sudah di-setup
-// import androidx.compose.material3.MaterialTheme
